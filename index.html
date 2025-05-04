@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Arquitectura de Von Neumann</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            border-bottom: 2px solid rgb(216, 0, 17);
+        }
+        .header img {
+            width: 200px;
+        }
+        .header h1 {
+            margin: 10px 0;
+            color: #333;
+        }
+        .header h2 {
+            margin: 5px 0;
+            color: rgb(216, 0, 17);
+            font-size: 1.5em;
+        }
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: rgb(216, 0, 17);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            text-align: left;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: rgb(216, 0, 17);
+            border: 3px solid #fff;
+            border-radius: 50%;
+            top: 15px;
+        }
+        .timeline-item:nth-child(odd)::before {
+            right: -10px;
+        }
+        .timeline-item:nth-child(even)::before {
+            left: -10px;
+        }
+        .timeline-content {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .timeline-content h3 {
+            margin: 0 0 10px 0;
+            color: rgb(216, 0, 17);
+        }
+        .timeline-content p {
+            margin: 0;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="universe.png">
+        <h2>Arquitectura de Von Neumann</h2>
+    </div>
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>1936</h3>
+                <p>Alan Turing describe la "Máquina de Turing universal" con almacenamiento infinito para instrucciones y datos.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>1936-1937</h3>
+                <p>John von Neumann conoce a Alan Turing en el Institute for Advanced Study en Princeton.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>Verano de 1944</h3>
+                <p>John von Neumann se une al proyecto ENIAC y participa en el diseño del EDVAC.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>30 de junio de 1945</h3>
+                <p>John von Neumann redacta el "First Draft of a Report on the EDVAC", base de la arquitectura de Von Neumann.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>1945</h3>
+                <p>John von Neumann propone la arquitectura de Von Neumann con memoria común para datos e instrucciones.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>1946</h3>
+                <p>La ENIAC se considera la primera computadora electrónica.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>19 de febrero de 1946</h3>
+                <p>Alan Turing presenta la Automatic Computing Engine (ACE) con programas almacenados.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>27 de enero de 1948</h3>
+                <p>La IBM SSEC demuestra la capacidad de tratar instrucciones como datos.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>21 de junio de 1948</h3>
+                <p>La SSEM "Baby" ejecuta el primer programa almacenado electrónicamente.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>25 de septiembre de 1948</h3>
+                <p>Publicación en Nature sobre "Electronic Digital Computers" mencionando desarrollos en Mánchester.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>16 de septiembre de 1948</h3>
+                <p>La ENIAC se modifica para ejecutar programas almacenados de solo lectura.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>Abril de 1949</h3>
+                <p>La Manchester Mark I está disponible para ejecutar programas.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>Mayo de 1949</h3>
+                <p>La EDSAC corre su primer programa, siendo el primer computador práctico de programa almacenado.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>Noviembre de 1949</h3>
+                <p>La CSIR Mark I corre su primer programa.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>1949</h3>
+                <p>Se termina de construir la EDVAC.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>Abril de 1950</h3>
+                <p>La SEAC es demostrada.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>10 de mayo de 1950</h3>
+                <p>La Pilot ACE corre su primer programa y se demuestra en diciembre.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>Julio de 1950</h3>
+                <p>La SWAC se completa.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>Diciembre de 1950</h3>
+                <p>La Computadora Whirlwind se completa. La ERA 1101 (UNIVAC 1101) se instala.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>1951</h3>
+                <p>La EDVAC entra en funcionamiento regular.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>Noviembre de 1951</h3>
+                <p>La ORDVAC en Aberdeen Proving Ground se completa.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>Enero de 1952</h3>
+                <p>La IAS machine en Princeton University se completa.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>Marzo de 1952</h3>
+                <p>La MANIAC I en Los Álamos se completa.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>Septiembre de 1952</h3>
+                <p>La ILLIAC en la Universidad de Illinois se completa.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>1952</h3>
+                <p>La BESM-1 en Moscú se completa.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>1953</h3>
+                <p>La AVIDAC en Laboratorios Argonne y la BESK en Estocolmo se completan.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>Junio de 1953</h3>
+                <p>La ORACLE en Oak Ridge se completa.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>1953</h3>
+                <p>Se publica "Faster than Thought: A Symposium on Digital Computing Machines".</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>Enero de 1954</h3>
+                <p>La JOHNNIAC en RAND Corporation se completa.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>1955</h3>
+                <p>La DASK en Dinamarca y la WEIZAC en Rehovoth se completan.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>1956</h3>
+                <p>La PERM en Múnich y la SILLIAC en Sídnei se completan.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>1960s-1970s</h3>
+                <p>Las computadoras se vuelven más pequeñas y rápidas, evolucionando la arquitectura.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>1977</h3>
+                <p>John Backus acuña el término “cuello de botella de von Neumann”.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>1980</h3>
+                <p>Berkeley y Stanford proponen el enfoque RISC.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>1986</h3>
+                <p>National Semiconductor introduce el COP8 con arquitectura Harvard modificada.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>1996</h3>
+                <p>Un estudio encuentra que el cuello de botella de Von Neumann se agrava.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>Actualidad</h3>
+                <p>La mayoría de las computadoras modernas usan la arquitectura de Von Neumann, mientras se exploran nuevos modelos en computación cuántica e IA.</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Add smooth scroll to timeline items on page load
+        window.onload = function() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            timelineItems.forEach((item, index) => {
+                setTimeout(() => {
+                    item.style.opacity = '1';
+                }, index * 200);
+            });
+        };
+    </script>
+</body>
+</html>
